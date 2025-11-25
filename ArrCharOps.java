@@ -164,6 +164,10 @@ public static long hashCode(char[] arr) {
      *         return -2 if there is an error with the input.
      */
    public static int compareTo(String str1, String str2) {
+    if (str1 == null || str2 == null || str1.isEmpty() || str2.isEmpty()) {
+        return -2;
+    }
+
     int len1 = str1.length(); 
     int len2 = str2.length();
     int minLen = Math.min(len1, len2); 
@@ -176,20 +180,18 @@ public static long hashCode(char[] arr) {
             if (ch1 < ch2) {
                 return -1; 
             } else {
-                return 1; 
+                return 1;  
             }
         }
-    }
-    
-    
+    } 
+
+
     if (len1 < len2) {
         return -1; 
+    } else if (len1 > len2) {
+        return 1;  
+    } else {
+        return 0;  
     }
-    
-    if (len1 > len2) {
-        return 1;
-    }
-    
-    return 0; 
 }
 }
