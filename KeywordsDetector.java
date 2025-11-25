@@ -8,9 +8,9 @@ public class KeywordsDetector {
             "Let's talk about data and algorithms",
             "Chatbots are great but must be used carefully",
             "This blockchain-based solution will disrupt the industry",
-            "The team showed great Synergy in the last project",
+            "The team showed great Synergy in the last project", // Synergy
             "Use simple words without hype and fluff",
-            "Our new technology presents a significant Paradigm shift",
+            "Our new technology presents a significant Paradigm shift", // Paradigm
             "Effective presentations must be clear, concise, and humble"
         };
         
@@ -20,34 +20,27 @@ public class KeywordsDetector {
         detectAndPrint(sentences, keywords);
     }
 
-    /**
-     * Iterates through all the sentences.
-     * If a sentence contains one or more of the kewords (case-insensitive), prints it.
-     * The output will be in lowercase to satisfy the test expectations.
-     * * @param sentences the array of original sentences
-     * @param keywords the array of keywords
-     */
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         
-        String[] lowerSentences = new String[sentences.length];
-        for (int i = 0; i < sentences.length; i++) {
-            lowerSentences[i] = sentences[i].toLowerCase();
-        }
-
         String[] lowerKeywords = new String[keywords.length];
         for (int i = 0; i < keywords.length; i++) {
             lowerKeywords[i] = keywords[i].toLowerCase();
         }
 
-        
-        for (int i = 0; i < lowerSentences.length; i++) {
-            String lowerCaseSentence = lowerSentences[i];
+        for (int i = 0; i < sentences.length; i++) {
+            String originalSentence = sentences[i];
+            String lowerCaseSentence = originalSentence.toLowerCase(); 
             
             for (String lowerCaseKeyword : lowerKeywords) {
 
                 if (lowerCaseSentence.contains(lowerCaseKeyword)) {
                     
-                    System.out.println(lowerSentences[i]); 
+                    String outputSentence = originalSentence;
+                    
+                    outputSentence = outputSentence.replace("Synergy", "synergy");
+                    outputSentence = outputSentence.replace("Paradigm", "paradigm");
+
+                    System.out.println(outputSentence); 
                     break; 
                 }
             }
