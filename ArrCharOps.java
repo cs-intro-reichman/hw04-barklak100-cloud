@@ -166,26 +166,22 @@ public class ArrCharOps {
      *         lexicographically greater than str2.
      *         return -2 if there is an error with the input.
      */
-    public static int compareTo(String str1, String str2) {
-    
+   public static int compareTo(String str1, String str2) {
     int len1 = str1.length(); 
     int len2 = str2.length();
-    int minLen = Math.min(len1, len2);
+    int minLen = Math.min(len1, len2); 
 
     for (int i = 0; i < minLen; i++) {
-        if (str1.charAt(i) != str2.charAt(i)) {
-            if (str1.charAt(i) < str2.charAt(i)) {
-                return -1;
-            } else {
-                return 1;
-            }
+        char ch1 = str1.charAt(i);
+        char ch2 = str2.charAt(i);
+        
+        if (ch1 != ch2) {
+            return ch1 - ch2; 
         }
     }
     
-    if (len1 < len2) return -1;
-    if (len1 > len2) return 1;
-    return 0;
+    return len1 - len2; 
 }
-  }
+}
 
     
