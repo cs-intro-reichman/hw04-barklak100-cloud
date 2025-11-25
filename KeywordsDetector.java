@@ -14,15 +14,18 @@ public class KeywordsDetector {
             "Effective presentations must be clear, concise, and humble"
         };
         
+        // Some keywords that typically signal bullshit contents in business presentations 
         String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
         
         detectAndPrint(sentences, keywords);
     }
 
     /**
-     * חוזר על כל המשפטים. אם משפט מכיל אחת או יותר ממילות המפתח (ללא תלות ברישיות), מדפיס אותו.
-     * @param sentences מערך המשפטים המקורי
-     * @param keywords מערך מילות המפתח המקורי
+     * Iterates through all the sentences.
+     * If a sentence contains one or more of the kewords (case-insensitive), prints it.
+     * The output will be in lowercase to satisfy the test expectations.
+     * * @param sentences the array of original sentences
+     * @param keywords the array of keywords
      */
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         
@@ -43,7 +46,8 @@ public class KeywordsDetector {
             for (String lowerCaseKeyword : lowerKeywords) {
 
                 if (lowerCaseSentence.contains(lowerCaseKeyword)) {
-                    System.out.println(sentences[i]); 
+                    
+                    System.out.println(lowerSentences[i]); 
                     break; 
                 }
             }
