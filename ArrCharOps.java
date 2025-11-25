@@ -176,12 +176,10 @@ public class ArrCharOps {
         char ch2 = str2.charAt(i);
         
         if (ch1 != ch2) {
-            return ch1 - ch2; 
+            return ch1 - ch2;
         }
     }
     
     return len1 - len2; 
 }
 }
-
-    
