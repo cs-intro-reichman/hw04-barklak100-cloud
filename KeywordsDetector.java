@@ -10,30 +10,43 @@ public class KeywordsDetector {
             "This blockchain-based solution will disrupt the industry",
             "The team showed great Synergy in the last project",
             "Use simple words without hype and fluff",
-            "Our new technology presents a significant paradigm shift",
+            "Our new technology presents a significant Paradigm shift",
             "Effective presentations must be clear, concise, and humble"
         };
-        // Some keywords that typically signal bullshit contents in business presentations 
+        
         String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
+        
         detectAndPrint(sentences, keywords);
     }
 
-    // Iterates through all the sentences.
-    // If a sentence contains one or more of the kewords, prints it.
+    /**
+     * חוזר על כל המשפטים. אם משפט מכיל אחת או יותר ממילות המפתח (ללא תלות ברישיות), מדפיס אותו.
+     * @param sentences מערך המשפטים המקורי
+     * @param keywords מערך מילות המפתח המקורי
+     */
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-            for(String sentence : sentences) {
-            for(String keyword : keywords) {
+        
+        String[] lowerSentences = new String[sentences.length];
+        for (int i = 0; i < sentences.length; i++) {
+            lowerSentences[i] = sentences[i].toLowerCase();
+        }
 
-            String lowerCaseSentence = sentence.toLowerCase();
-            String lowerCaseKeyword = keyword.toLowerCase();
+        String[] lowerKeywords = new String[keywords.length];
+        for (int i = 0; i < keywords.length; i++) {
+            lowerKeywords[i] = keywords[i].toLowerCase();
+        }
 
-            if (lowerCaseSentence.contains(lowerCaseKeyword)) {
+        
+        for (int i = 0; i < lowerSentences.length; i++) {
+            String lowerCaseSentence = lowerSentences[i];
+            
+            for (String lowerCaseKeyword : lowerKeywords) {
 
-                System.out.println(sentence); 
-                break;
+                if (lowerCaseSentence.contains(lowerCaseKeyword)) {
+                    System.out.println(sentences[i]); 
+                    break; 
+                }
             }
         }
     }
-  }
-
 }
