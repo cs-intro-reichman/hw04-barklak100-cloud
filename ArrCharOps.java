@@ -124,22 +124,19 @@ public class ArrCharOps {
         return res;
     }
 
-     /** Returns a single integer that represents the given array. This integer is sometimes 
-     *  referred to as the array's "hash code". Later in the course we'll explain what these 
-     *  hash codes are used for. For now, simply implement the specification given below.
-     *  The hash code is computed as: arr[0]*7^(n-1) + arr[1]*7^(n-2) + ... + arr[n-2]*7 + arr[n-1]
-     *  where arr[i] is the i'th character of the array, and n is the array's length.
-     *  The hash value of an empty array is zero.
-     */
-    public static long hashCode(char[] arr) {
-                int hash = 0;
-                for (int i = 0; i < arr.length; i++) {
-                hash = hash * 7 + arr[i];
+    /** Returns a single integer (long) that represents the given array's hash code.
+ * The hash code is computed as: arr[0]*7^(n-1) + arr[1]*7^(n-2) + ... + arr[n-1]
+ */
+public static long hashCode(char[] arr) {
+    long hash = 0; 
+    
+    for (int i = 0; i < arr.length; i++) {
+                
+        hash = hash * 7 + arr[i]; 
     }
     
-                return hash;
-
-    }
+    return hash; 
+}
 
     /**
      * Compares the two strings lexicographically.
@@ -176,10 +173,23 @@ public class ArrCharOps {
         char ch2 = str2.charAt(i);
         
         if (ch1 != ch2) {
-            return ch1 - ch2;
+            if (ch1 < ch2) {
+                return -1; 
+            } else {
+                return 1; 
+            }
         }
     }
     
-    return len1 - len2; 
+    
+    if (len1 < len2) {
+        return -1; 
+    }
+    
+    if (len1 > len2) {
+        return 1;
+    }
+    
+    return 0; 
 }
 }
