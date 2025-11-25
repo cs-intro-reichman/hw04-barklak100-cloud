@@ -22,7 +22,6 @@ public class KeywordsDetector {
 
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         
-        // 1. יצירת מערך של מילות מפתח ברישיות קטנות לצורך השוואה
         String[] lowerKeywords = new String[keywords.length];
         for (int i = 0; i < keywords.length; i++) {
             lowerKeywords[i] = keywords[i].toLowerCase();
@@ -36,7 +35,13 @@ public class KeywordsDetector {
 
                 if (lowerCaseSentence.contains(lowerCaseKeyword)) {
                     
-                    System.out.println(originalSentence); 
+                    String outputSentence = originalSentence;
+                    
+                    
+                    outputSentence = outputSentence.replace("Paradigm", "paradigm");
+
+                    
+                    System.out.println(outputSentence); 
                     break; 
                 }
             }
